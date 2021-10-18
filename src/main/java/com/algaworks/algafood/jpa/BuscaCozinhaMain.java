@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import com.algaworks.algafood.AlgafoodApiApplication;
 import com.algaworks.algafood.domain.model.Cozinha;
 
-public class ConsultaCozinhaMain {
+public class BuscaCozinhaMain {
 
 	public static void main(String[] args) {
 
@@ -19,10 +19,11 @@ public class ConsultaCozinhaMain {
 		
 		CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);
 		
-		Cozinha cozinha = cadastroCozinha.buscar(1L);
-		
+		List<Cozinha> cozinhas = cadastroCozinha.listar();
+
+		for (Cozinha cozinha : cozinhas) {
 			System.out.println(cozinha.getNome());
-		
+		}
 	}
 
 }
